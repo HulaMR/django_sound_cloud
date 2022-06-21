@@ -8,22 +8,6 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('avatar', 'country', 'city', 'bio', 'display_name')
 
 
-class SocialLinkSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)
-
-    class Meta:
-        model = models.SocialLinks
-        fields = ('id', 'link',)
-
-
-class AuthorSerializer(serializers.ModelSerializer):
-    social_links = SocialLinkSerializer(many=True)
-
-    class Meta:
-        model = models.AuthUser
-        fields = ('id', 'avatar', 'country', 'city', 'bio', 'display_name', 'social_links')
-
-
 class GoogleAuth(serializers.Serializer):
     email = serializers.EmailField()
     token = serializers.CharField()

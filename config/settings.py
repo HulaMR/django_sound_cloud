@@ -27,10 +27,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'drf_yasg',
-    'django_filters'
-    
     'src.oauth',
-    'src.audio_library',
 
 ]
 
@@ -117,13 +114,11 @@ ALGORITHM = 'HS256'
 ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24
 
 GOOGLE_CLIENT_ID = '624596912501-obsg9iasop4k2l9jutr3qcdeknip0emm.apps.googleusercontent.com'
-SPOTIFY_CLIENT_ID = 'e1cc836339934310b41443ef270435c9'
-SPOTIFY_SECRET = 'KEY'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ('src.oauth.services.auth_backend.AuthBackend',),
     'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.AllowAny'],
-    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+    # 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
 
 SWAGGER_SETTINGS = {
